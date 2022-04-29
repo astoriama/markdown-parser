@@ -21,7 +21,7 @@ public class MarkdownParseTest {
         l1.add("https://something.com");
         l1.add("some-thing.html");
 
-        
+
         Path fileName = Path.of("test-file.md");
         String content = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(content);
