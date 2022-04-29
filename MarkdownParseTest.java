@@ -20,8 +20,19 @@ public class MarkdownParseTest {
         ArrayList<String>  l1 = new ArrayList<String>();
         l1.add("https://something.com");
         l1.add("some-thing.html");
-        // Path fileName = Path.of("/Users/astoria/Documents/GitHub/markdown-parser/test-file.md");
-        Path fileName = Path.of("test-file.md");
+        Path fileName = Path.of("/Users/astoria/Documents/GitHub/markdown-parser/test-file.md");
+        //Path fileName = Path.of("test-file.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(content);
+        assertEquals(l1,links);
+    }
+
+    @Test
+    public void testMarkdownParse() throws IOException {
+        ArrayList<String>  l1 = new ArrayList<String>();
+        l1.add("google.com/(hi)");
+        //Path fileName = Path.of("/Users/astoria/Documents/GitHub/markdown-parser/test-file9.md");
+        Path fileName = Path.of("test-file0.md");
         String content = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(content);
         assertEquals(l1,links);
