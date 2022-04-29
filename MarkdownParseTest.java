@@ -19,7 +19,7 @@ public class MarkdownParseTest {
     public void testGetLinks() throws IOException {
         ArrayList<String>  l1 = new ArrayList<String>();
         l1.add("https://something.com");
-        // l1.add("some-thing.html");
+        l1.add("some-thing.html");
         // Path fileName = Path.of("/Users/astoria/Documents/GitHub/markdown-parser/test-file.md");
         Path fileName = Path.of("test-file.md");
         String content = Files.readString(fileName);
