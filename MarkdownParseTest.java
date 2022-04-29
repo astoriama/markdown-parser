@@ -32,7 +32,7 @@ public class MarkdownParseTest {
         ArrayList<String>  l1 = new ArrayList<String>();
         l1.add("google.com/(hi)");
         //Path fileName = Path.of("/Users/astoria/Documents/GitHub/markdown-parser/test-file9.md");
-        Path fileName = Path.of("test-file0.md");
+        Path fileName = Path.of("test-file9.md");
         String content = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(content);
         assertEquals(l1,links);
