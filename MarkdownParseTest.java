@@ -22,8 +22,11 @@ public class MarkdownParseTest {
         l1.add("some-thing.html");
         //Path fileName = Path.of("/Users/astoria/Documents/GitHub/markdown-parser/test-file.md");
         Path fileName = Path.of("test-file.md");
+        System.out.println("hi");
         String content = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(content);
         assertEquals(l1,links);
+
+
     }
 }
