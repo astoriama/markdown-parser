@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public class MarkdownParse {
+<<<<<<< HEAD
 
     static int findCloseParen(String markdown, int openParen) {
         int closeParen = openParen + 1;
@@ -45,12 +46,15 @@ public class MarkdownParse {
         }
     }
 
+=======
+>>>>>>> 9894d3d20bfaa8b5a4e6a2676cda6eadc9ceec6b
     public static ArrayList<String> getLinks(String markdown) {
         ArrayList<String> toReturn = new ArrayList<>();
         // find the next [, then find the ], then find the (, then take up to
         // the next )
         int currentIndex = 0;
         while(currentIndex < markdown.length()) {
+<<<<<<< HEAD
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
             int nextCodeBlock = markdown.indexOf(System.lineSeparator() + "```");
             if(nextCodeBlock < nextOpenBracket && nextCodeBlock!=-1 ) {
@@ -86,6 +90,28 @@ public class MarkdownParse {
             }
             else {
                 currentIndex = currentIndex + 1;
+=======
+            //need All "[", "]",and"(",")", if cannot find correct, stop.
+            //1. find "[". if no, stop. Else, continue.
+            if(markdown.indexOf("[", currentIndex)==-1){
+                break;
+            }else{
+                int openBracket = markdown.indexOf("[", currentIndex);
+                //2. find "](", instead of ] and ( separated. 
+                if(markdown.indexOf("](", openBracket)==-1){
+                    break;
+                }else{
+                    int closeBracketOpenParen = markdown.indexOf("](", openBracket);
+                    
+                    if(markdown.indexOf(")", closeBracketOpenParen)==-1){
+                        break;
+                    }else{
+                        int closeParen = markdown.indexOf(")", closeBracketOpenParen);
+                        toReturn.add(markdown.substring(closeBracketOpenParen + 2, closeParen));
+                        currentIndex = closeParen + 1;
+                    }
+                }
+>>>>>>> 9894d3d20bfaa8b5a4e6a2676cda6eadc9ceec6b
             }
         }
         return toReturn;
@@ -96,4 +122,11 @@ public class MarkdownParse {
         ArrayList<String> links = getLinks(contents);
         System.out.println(links);
     }
+<<<<<<< HEAD
 }
+=======
+}
+
+
+
+>>>>>>> 9894d3d20bfaa8b5a4e6a2676cda6eadc9ceec6b
